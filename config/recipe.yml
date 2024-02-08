@@ -15,23 +15,22 @@ modules:
 
   - type: files
     files:
-      - usr: /usr # copy static configurations
-                  #
-                  # copies config/files/usr into your image's /usr
-                  #
-                  # configuration you wish to end up in /etc/ on the booted system
-                  # should be added into /usr/etc/ as that is the proper "distro"
-                  # config directory on ostree. Read more in the files module's README
+      - usr: /usr
+      - etc: /usr/etc
 
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
-      # - micro
-      # - starship
+      - tailscale
+      - swaylock
+      - polkit-gnome
+
+      - langpacks-en # the lingua franca
+      - langpacks-en_GB # the Queen's English
+      - langpacks-nl # the Nether
+      - langpacks-ro # the OG
     remove:
-      # - firefox # default firefox removed in favor of flatpak
-      # - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
 
   - type: default-flatpaks
     notify: true   # Send notification after install/uninstall is finished (true/false)
@@ -54,6 +53,23 @@ modules:
     user:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       repo-name: flathub
+      install:
+      - com.raggesilver.BlackBox
+      - org.telegram.desktop
+      - com.discordapp.Discord
+      - org.videolan.VLC
+      - io.github.flattool.Warehouse
+      - com.spotify.Client
+      - com.google.Chrome # for work...
+      - org.gnome.Solanum
+      - org.signal.Signal
+      - com.github.tchx84.Flatseal
+      - org.gimp.GIMP
+      - ca.desrt.dconf-editor
+      - org.mozilla.Thunderbird
+      - org.gnome.NautilusPreviewer
+      - org.pulseaudio.pavucontrol
+      - org.libreoffice.LibreOffice
 
   - type: script
     scripts:
