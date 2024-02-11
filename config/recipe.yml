@@ -26,6 +26,9 @@ modules:
       - swaylock
       - polkit-gnome
 
+      - network-manager-applet
+      - blueman
+
       - langpacks-en # the lingua franca
       - langpacks-en_GB # the Queen's English
       - langpacks-nl # the Nether
