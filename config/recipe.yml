@@ -25,6 +25,7 @@ modules:
       - tailscale
       - swaylock
       - polkit-gnome
+      - darkman
 
       - network-manager-applet
       - blueman
