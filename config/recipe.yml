@@ -34,6 +34,8 @@ modules:
       - langpacks-en_GB # the Queen's English
       - langpacks-nl # the Nether
       - langpacks-ro # the OG
+
+      - virt-manager
     remove:
 
   - type: default-flatpaks
