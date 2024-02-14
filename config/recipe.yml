@@ -36,6 +36,7 @@ modules:
       - langpacks-ro # the OG
 
       - virt-manager
+      - swtpm # for Win 11
     remove:
 
   # - type: default-flatpaks
