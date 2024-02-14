@@ -1,0 +1,6 @@
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+natural-scroll=true
+tap-and-drag=true
+tap-and-drag-lock=true
+two-finger-scrolling-enabled=true
