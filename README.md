@@ -1,20 +1,12 @@
 # Tudor's OS image
 
-This is (going to be) my personal Fedora config. Work in progress!
-
-It's based on [Universal Blue](https://universal-blue.org).
-Parts of the original README follow:
+This is my personal Fedora config. It's based on [Universal Blue](https://universal-blue.org).
 
 ## Installation
 
-> **Warning**
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable) and should not be used in production, try it in a VM for a while!
-
-To rebase an existing Silverblue/Kinoite installation to the latest build:
-
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/startingpoint:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/tudurom/my-os:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -22,7 +14,7 @@ To rebase an existing Silverblue/Kinoite installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/startingpoint:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/tudurom/my-os:latest
   ```
 - Reboot again to complete the installation
   ```
@@ -32,35 +24,20 @@ To rebase an existing Silverblue/Kinoite installation to the latest build:
 This repository builds date tags as well, so if you want to rebase to a particular day's build:
 
 ```
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/startingpoint:20230403
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/tudurom/my-os:20240214
 ```
-
-This repository by default also supports signing.
-
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
 
 ## ISO
 
-This template includes a simple Github Action to build and release an ISO of your image. 
+There is an ISO available in the "Releases" section.
 
-To run the action, simply edit the `boot_menu.yml` by changing all the references to startingpoint to your repository. This should trigger the action automatically.
+## Nix
 
-The Action uses [isogenerator](https://github.com/ublue-os/isogenerator) and works in a similar manner to the official Universal Blue ISO. If you have any issues, you should first check [the documentation page on installation](https://universal-blue.org/installation/). The ISO is a netinstaller and should always pull the latest version of your image.
+Because this is a UBlue-derived image, it comes with a couple justfiles for [`just`](https://just.systems/).
+You can use this to install Nix:
 
-Note that this release-iso action is not a replacement for a full-blown release automation like [release-please](https://github.com/googleapis/release-please).
-
-## `just`
-
-The [`just`](https://just.systems/) command runner is included in all `ublue-os/main`-derived images.
-
-You need to have a `~/.justfile` with the following contents and `just` aliased to `just --unstable` (default in posix-compatible shells on ublue) to get started with just locally.
 ```
-!include /usr/share/ublue-os/just/main.just
-!include /usr/share/ublue-os/just/nvidia.just
-!include /usr/share/ublue-os/just/custom.just
+ujust nix
 ```
-Then type `just` to list the just recipes available.
-
-The file `/usr/share/ublue-os/just/custom.just` is intended for the custom just commands (recipes) you wish to include in your image. By default, it includes the justfiles from [`ublue-os/bling`](https://github.com/ublue-os/bling), if you wish to disable that, you need to just remove the line that includes bling.just.
 
 See [the just-page in the Universal Blue documentation](https://universal-blue.org/guide/just/) for more information.
