@@ -21,6 +21,7 @@ modules:
   - type: rpm-ostree
     repos:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://packages.microsoft.com/yumrepos/vscode/config.repo
     install:
       - tailscale
       - swaylock
@@ -29,6 +30,8 @@ modules:
 
       - network-manager-applet
       - blueman
+
+      - code
 
       - langpacks-en # the lingua franca
       - langpacks-en_GB # the Queen's English
