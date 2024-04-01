@@ -40,6 +40,9 @@ modules:
 
       - virt-manager
       - swtpm # for Win 11
+
+      - libreoffice
+      - libreoffice-gtk4
     remove:
 
   # - type: default-flatpaks
@@ -79,6 +82,5 @@ modules:
   #     - org.mozilla.Thunderbird
   #     - org.gnome.NautilusPreviewer
   #     - org.pulseaudio.pavucontrol
-  #     - org.libreoffice.LibreOffice
 
   - type: signing
