@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=niri
+Exec=/usr/bin/bash -lc /home/tudor/.nix-profile/bin/niri --session
+Type=Application
+DesktopNames=niri
