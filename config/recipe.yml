@@ -22,6 +22,7 @@ modules:
     repos:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       - https://packages.microsoft.com/yumrepos/vscode/config.repo
+      - https://mise.jdx.dev/rpm/mise.repo
     install:
       - tailscale
       - swaylock
@@ -32,6 +33,8 @@ modules:
       - blueman
 
       - code
+
+      - mise
 
       - langpacks-en # the lingua franca
       - langpacks-en_GB # the Queen's English
