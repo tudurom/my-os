@@ -48,6 +48,13 @@ modules:
       - libreoffice-gtk4
     remove:
 
+  - type: rpm-ostree
+    repos:
+      # warp terminal repo
+      - https://gist.githubusercontent.com/tudurom/43baba11361bf26ef3a6ff0954bb2a1d/raw/5afc9f39ac8fc44ea73f890bb715808c09399d27/warpdotdev.repo
+    install: [warp-terminal]
+    remove:
+
   # - type: default-flatpaks
   #   notify: true   # Send notification after install/uninstall is finished (true/false)
   #   system:
